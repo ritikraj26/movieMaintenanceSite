@@ -9,4 +9,7 @@ class movieList(models.Model):
     def __str__(self):
         return self.title + ' ' + self.description
 
-
+class actorList(models.Model):
+    name = models.CharField(max_length=200)
+    dateOfBirth = models.DateField()
+    numberOfMovies = models.IntegerField()
