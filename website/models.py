@@ -13,3 +13,6 @@ class actorList(models.Model):
     name = models.CharField(max_length=200)
     dateOfBirth = models.DateField()
     numberOfMovies = models.IntegerField()
+
+    def __str__(self):
+        return self.name
