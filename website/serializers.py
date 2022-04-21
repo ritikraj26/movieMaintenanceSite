@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from website.models import movieList, actorList
+from .models import movieList, actorList
 
 class movieListSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,10 +9,10 @@ class movieListSerializer(serializers.ModelSerializer):
                   'releaseDate',
                   'numberOfActors',
         )
-class actorlistSerializer(serializers.ModelSerializer):
+class actorListSerializer(serializers.ModelSerializer):
     class Meta:
         model = actorList
         fields = ('name',
                   'dateOfBirth',
                   'numberOfMovies',
-                  )
+        )
