@@ -1,17 +1,19 @@
 from rest_framework import serializers
-from .models import movieList, actorList
+from .models import Movie, Actor
 
-class movieListSerializer(serializers.ModelSerializer):
+class movieSerializer(serializers.ModelSerializer):
     class Meta:
-        model = movieList
+        model = Movie
         fields = ('title',
                   'description',
                   'releaseDate',
                   'numberOfActors',
+                  'upvote',
+                  'downvote',
         )
-class actorListSerializer(serializers.ModelSerializer):
+class actorSerializer(serializers.ModelSerializer):
     class Meta:
-        model = actorList
+        model = Actor
         fields = ('name',
                   'dateOfBirth',
                   'numberOfMovies',
