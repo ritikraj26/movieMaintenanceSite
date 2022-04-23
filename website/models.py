@@ -9,7 +9,7 @@ class Movie(models.Model):
     downvote = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.title + ' ' + self.description
+        return self.title
 
 class Actor(models.Model):
     name = models.CharField(max_length=200)
