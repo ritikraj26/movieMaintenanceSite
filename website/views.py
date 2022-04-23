@@ -19,9 +19,14 @@ def movieApi(request):
             movie_serializer.save()
             return JsonResponse("Added Successfully!", safe=False)
         return JsonResponse("Failed to add!!!", safe=False)
-    # elif request.method =='PUT':
-    #     movie_data = JSONParser().parse(request)
-    #     movie = movieList.objects.get()
+    elif request.method == 'PUT':
+        movie_data = JSONParser().parse(request)
+        movie = Movie.objects.get(title=movie_data['title'])
+        movie_serializer = movieSerializer(movie, data=movie_data)
+        if movie_serializer.is_valid():
+            movie_serializer.save()
+            return JsonResponse("Updated", safe=False)
+        return JsonResponse("Failed to update", safe=False)
 @csrf_exempt
 def actorApi(request):
     if request.method == 'GET':
